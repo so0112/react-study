@@ -26,7 +26,15 @@ function App() {
   return (
     <div className="App">
       {expenses.map((expense) => {
-        return <ExpenseItem expense={expense} />;
+        return <ExpenseItem expense={expense} key={expense.id} />;
+      })}
+
+      {/* 
+      FIXME
+       forEach는 map과 다르게 return 하는 값이 없으므로 
+       컴포넌트를 출력할 수 없다.*/}
+      {expenses.forEach((expense) => {
+        return <ExpenseItem expense={expense} key={expense.id} />;
       })}
     </div>
   );

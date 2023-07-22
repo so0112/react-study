@@ -7,10 +7,11 @@ const initialState = {
 
 // 2. reudcers
 const reducers = {
-  increment: (state) => {
-    state.value += 1;
+  increment: (state, action) => {
+    const incresmentNum = action.payload;
+    state.value += incresmentNum;
   },
-  decrement: (state) => {
+  decrement: (state, action) => {
     state.value -= 1;
   },
   incrementByAmount: (state, action) => {
@@ -19,7 +20,7 @@ const reducers = {
 };
 
 // 3. slice
-export const counterSlice = createSlice({
+const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers,

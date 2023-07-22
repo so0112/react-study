@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "./slice";
+import { increment, decrement, incrementByAmount } from "./slice";
 
 export function ReduxPage() {
   const dispatch = useDispatch();
@@ -8,8 +8,6 @@ export function ReduxPage() {
   const state = {
     count: useSelector((state) => state.counter.value),
   };
-
-  const callbacks = {};
 
   return (
     <div>

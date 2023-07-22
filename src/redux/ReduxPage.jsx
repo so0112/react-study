@@ -1,7 +1,27 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "./slice";
 
-const ReduxPage = () => {
-  return <div>ReduxPage</div>;
-};
+export function ReduxPage() {
+  const dispatch = useDispatch();
 
-export default ReduxPage;
+  const state = {
+    count: useSelector((state) => state.counter.value),
+  };
+
+  const callbacks = {};
+
+  return (
+    <div>
+      <div>
+        <button aria-label="Increment value" onClick={() => dispatch(increment())}>
+          Increment
+        </button>
+        <span>{state.count}</span>
+        <button aria-label="Decrement value" onClick={() => dispatch(decrement())}>
+          Decrement
+        </button>
+      </div>
+    </div>
+  );
+}

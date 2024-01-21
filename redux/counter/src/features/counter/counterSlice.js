@@ -1,8 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
+// 초기 state
 const initialState = {
   value: 0,
-  status: 'idle',
 };
 
 export const counterSlice = createSlice({
@@ -19,8 +19,14 @@ export const counterSlice = createSlice({
       state.value += action.payload;
     },
   },
+  extraReducers: (builder) => {},
 });
 
+// state
+export const selectCount = (state) => state.counter.value;
+
+// actions
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
+// reducer
 export default counterSlice.reducer;

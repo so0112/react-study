@@ -1,12 +1,11 @@
 import React from 'react';
-import { Counter } from './feature/counter/Counter';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Counter />
+        <img src={`${process.env.PUBLIC_URL ?? ''}/logo.svg`} className="App-logo" alt="logo" />
       </header>
     </div>
   );

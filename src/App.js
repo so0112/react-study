@@ -1,10 +1,10 @@
-import Modal from "./components/modal/Modal";
-// import { ReduxPage } from "./redux/ReduxPage";
+import Modal from './components/modal/Modal';
+import { ReduxPage } from './redux/ReduxPage';
 
 function App() {
   return (
     <div className="App">
-      {/* <ReduxPage /> */}
+      <ReduxPage />
       <Modal />
     </div>
   );

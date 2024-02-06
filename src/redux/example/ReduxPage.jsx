@@ -1,6 +1,6 @@
-import React, { useCallback, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { reducer, pageId } from "./slice";
+import React, { useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { reducer, pageId } from './slice';
 
 export function ReduxPage() {
   const dispatch = useDispatch();
@@ -12,12 +12,8 @@ export function ReduxPage() {
   };
 
   const callbacks = {
-    changeInput: useCallback(() => {
-      dispatch(reducer.changeInput());
-    }, []),
-    increment: useCallback((args) => {
-      dispatch(reducer.increment(args));
-    }, []),
+    changeInput: () => dispatch(reducer.changeInput()),
+    increment: (args) => dispatch(reducer.increment(args)),
   };
 
   const initInput = () => {
@@ -33,7 +29,8 @@ export function ReduxPage() {
           onClick={() => {
             callbacks.increment(1);
             initInput();
-          }}>
+          }}
+        >
           Increment
         </button>
         <span>{state.count}</span>

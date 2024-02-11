@@ -1,7 +1,11 @@
+/// react
 import React, { useRef } from 'react';
+// redux
 import { useSelector, useDispatch } from 'react-redux';
 import { reducer, pageId } from './slice';
-import { observer } from '../../utils/js/viewport';
+// css
+import './reduxPage.css';
+// utils
 
 export function ReduxPage() {
   const dispatch = useDispatch();
@@ -22,15 +26,12 @@ export function ReduxPage() {
   };
 
   return (
-    <div>
+    <div className="redux-container">
       <div>
-        <input
-          ref={inputRef}
-          value={state.inputValue}
-          onChange={(e) => callbacks.changeInput(e)}
-        ></input>
+        <span>{state.count}</span>
+      </div>
+      <div>
         <button
-          id="btn"
           className="btn"
           aria-label="Increment value"
           onClick={() => {
@@ -38,24 +39,21 @@ export function ReduxPage() {
             initInput();
           }}
         >
-          Increment
+          +
         </button>
-        <span>{state.count}</span>
+        <input
+          className="redux-input"
+          ref={inputRef}
+          value={state.inputValue}
+          onChange={(e) => callbacks.changeInput(e)}
+        ></input>
+
         <button
-          className="bottom-btn"
+          className="btn"
           aria-label="Decrement value"
           onClick={() => dispatch(reducer.decrement())}
         >
-          Decrement
-        </button>
-        <button
-          onClick={() => {
-            const btn = document.getElementById('btn');
-            console.log(1);
-            observer.observe(btn);
-          }}
-        >
-          observe
+          -
         </button>
       </div>
     </div>

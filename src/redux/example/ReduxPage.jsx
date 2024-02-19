@@ -6,6 +6,7 @@ import { reducer, pageId } from './slice';
 // css
 import './reduxPage.css';
 // utils
+import { test } from 'utils/test';
 
 export function ReduxPage() {
   const dispatch = useDispatch();

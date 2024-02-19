@@ -11,3 +11,5 @@ const options = {
 };
 
 export const observer = new IntersectionObserver(callback, options);
+
+export const test = 1;
